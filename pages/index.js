@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from "react"
 import styles from '../styles/Home.module.css'
 import Link from "next/link.js"
+import Loader from '../components/Loader.js'
 
 export default function Home() {
   return (
@@ -13,6 +14,10 @@ export default function Home() {
       }}>
        tri
       </Link>
+      <div>
+        <Loader show></Loader>
+      </div>
     </div>
+    
   )
 }
