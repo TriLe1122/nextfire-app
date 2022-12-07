@@ -1,7 +1,11 @@
 import React from "react"
-export default function AdminPostsPage({ }) {
+import AuthCheck from "../../components/AuthCheck.js"
+export default function AdminPostsPage(props) {
   return (
     <main>
+      <AuthCheck>
+
+      </AuthCheck>
     </main>
   )
 }
