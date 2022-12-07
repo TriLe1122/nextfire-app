@@ -29,7 +29,7 @@ export default function Home(props) {
   const [posts, setPosts] = useState(props.posts);
   const [loading, setLoading] = useState(false);
 
-  const [postEnd, setPostsEnd] = useState(false);
+  const [postsEnd, setPostsEnd] = useState(false);
 
   const getMorePosts = async () => {
     setLoading(true);
