@@ -1,5 +1,5 @@
 import React from "react"
-import styles from '../../styles/Admin.module.css';
+// import styles from '../../styles/Admin.module.css';
 import AuthCheck from '../../components/AuthCheck';
 import { firestore, auth, serverTimestamp } from '../../lib/firebase';
 
@@ -13,6 +13,7 @@ import Link from 'next/link';
 import toast from 'react-hot-toast';
 
 
+// @ts-ignore
 export default function AdminPostEdit(props) {
   return (
     <AuthCheck>
@@ -27,11 +28,13 @@ function PostManager() {
   const router = useRouter();
   const { slug } = router.query;
 
+  // @ts-ignore
   const postRef = firestore.collection('users').doc(auth.currentUser.uid).collection('posts').doc(slug);
+  // @ts-ignore
   const [post] = useDocumentData(postRef);
 
   return (
-    <main className={styles.container}>
+    <main className="">
       {post && (
         <>
           <section>
@@ -55,7 +58,10 @@ function PostManager() {
 }
 
 function PostForm({ defaultValues, postRef, preview }) {
-  const { register, handleSubmit, reset, watch } = useForm({ defaultValues, mode: 'onChange' });
+  // @ts-ignore
+  const { register, handleSubmit, reset, watch} = useForm({ defaultValues, mode: 'onChange' });
+
+  // const {isValid, isDirty} = formState
 
   const updatePost = async ({ content, published }) => {
     await postRef.update({
@@ -77,12 +83,21 @@ function PostForm({ defaultValues, postRef, preview }) {
         </div>
       )}
 
-      <div className={preview ? styles.hidden : styles.controls}>
+      <div className={preview ? "hidden" : "block"}>
 
-        <textarea name="content" ref={register}></textarea>
+        <textarea name="content" >
+        </textarea>
+
+        {/* {errors.content && <p className="text-danger">{errors.content.message}</p>} */}
+
+        <button type="submit" >
+          Save Changes
+        </button>
 
         <fieldset>
-          <input className="" name="published" type="checkbox" ref={register} />
+          <input className="" name="published" type="checkbox" 
+// @ts-ignore
+          ref={register} />
           <label>Published</label>
         </fieldset>
 
