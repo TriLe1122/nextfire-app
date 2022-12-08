@@ -5,8 +5,9 @@ import styles from '../styles/Home.module.css'
 import Link from "next/link.js"
 import Loader from '../components/Loader.js'
 import toast from 'react-hot-toast'
-import { firestore, postToJSON } from "../lib/firebase.js"
+import { firestore, fromMillis, postToJSON } from "../lib/firebase.js"
 import PostFeed from "../components/PostFeed.js"
+
 
 
 const LIMIT = 1;
